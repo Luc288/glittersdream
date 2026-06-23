@@ -1,0 +1,24 @@
+baseURL = 'https://www.glittersdream.be/'
+locale = 'nl-be'
+title = "Glitter's Dream — Kattentrimsalon"
+
+[params]
+  description = "Professioneel kattentrimsalon in Herentals, gespecialiseerd in langharige katten."
+  phone = "0496/40.69.16"
+  phoneLink = "+32496406916"
+  email = "info@glittersdream.be"
+  address = "Netelaan 4, 2200 Herentals"
+  mapsUrl = "https://www.google.com/maps/search/?api=1&query=Netelaan+4+2200+Herentals"
+
+[[params.nav]]
+  name = "Home"
+  url = "#home"
+[[params.nav]]
+  name = "Verzorging"
+  url = "#verzorging"
+[[params.nav]]
+  name = "Ons Team"
+  url = "#team"
+[[params.nav]]
+  name = "Contact"
+  url = "#contact"

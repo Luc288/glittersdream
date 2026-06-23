@@ -1,0 +1,17 @@
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="#home" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-text">Glitter's&nbsp;Dream</span>
+    </a>
+    <nav class="nav" id="primaryNav">
+      {{ range .Site.Params.nav }}
+        <a href="{{ .url }}">{{ .name }}</a>
+      {{ end }}
+      <a class="nav-cta" href="tel:{{ .Site.Params.phoneLink }}">Afspraak maken</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

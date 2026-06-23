@@ -1,0 +1,38 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand brand--footer"><span class="brand-mark">✦</span> Glitter's Dream</div>
+      <p class="muted">{{ .Site.Params.description }}</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><a href="tel:{{ .Site.Params.phoneLink }}">{{ .Site.Params.phone }}</a></p>
+      <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+      <p class="muted">{{ .Site.Params.address }}</p>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      {{ range .Site.Params.nav }}<p><a href="{{ .url }}">{{ .name }}</a></p>{{ end }}
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {{ now.Year }} Glitter's Dream — Kattentrimsalon Herentals</span>
+    <span class="muted">Gebruiksvoorwaarden · Privacybeleid</span>
+  </div>
+</footer>
+<script>
+  const header = document.getElementById('siteHeader');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 20));
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); toggle.classList.remove('open');
+  }));
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>

@@ -1,0 +1,134 @@
+{{ define "main" }}
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Kattentrimsalon · Herentals</span>
+      <h1>Verzorging met <em>liefde</em> voor uw kat</h1>
+      <p class="lead">Professioneel trimmen en verzorgen van katten, met bijzondere expertise in langharige rassen zoals de Maine Coon. Rustig, vakkundig en stressvrij.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="tel:{{ .Site.Params.phoneLink }}">Maak een afspraak</a>
+        <a class="btn btn--ghost" href="#verzorging">Onze verzorging</a>
+      </div>
+      <ul class="hero-points">
+        <li>✦ Erkende opleiding (NL)</li>
+        <li>✦ Gespecialiseerd in langhaar</li>
+        <li>✦ Gratis parking</li>
+      </ul>
+    </div>
+    <div class="hero-card reveal">
+      <div class="paw-art">🐾</div>
+      <p class="quote">"Voorkomen is beter dan genezen"</p>
+      <p class="muted">Een trimbeurt om de 6 weken houdt de vacht klit- en knoopvrij.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAAROM -->
+<section class="section" id="waarom">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Waarom een trimsalon?</span>
+      <h2>Goede vachtverzorging is gezondheidszorg</h2>
+    </div>
+    <div class="grid grid-3">
+      {{ $cards := slice
+        (dict "icon" "🩺" "title" "Voorkomt problemen" "text" "Ingeslikte haren kunnen haarballen of darmklachten geven, zeker bij oudere of zieke katten.")
+        (dict "icon" "🏠" "title" "Minder haar in huis" "text" "Door dode onderhaar te verwijderen blijft er veel minder los haar achter in uw woning.")
+        (dict "icon" "💛" "title" "Hulp waar nodig" "text" "Oudere of zieke katten poetsen zichzelf niet meer goed — wij nemen die zorg uit handen.")
+      }}
+      {{ range $i, $c := $cards }}
+      <article class="card reveal" style="--d: {{ mul $i 80 }}ms">
+        <span class="card-icon">{{ $c.icon }}</span>
+        <h3>{{ $c.title }}</h3>
+        <p>{{ $c.text }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- VERZORGING -->
+<section class="section section--alt" id="verzorging">
+  <div class="container split">
+    <div class="split-copy reveal">
+      <span class="eyebrow">Verzorging</span>
+      <h2>Wat we doen tijdens een trimbeurt</h2>
+      <p>Katten zijn nette dieren, maar wat hulp is vaak nodig. Wij werken rustig en met respect voor uw kat. Voor klitten en vervilting hebben we de juiste technieken en materialen in huis.</p>
+      <ul class="checklist">
+        <li>Vlooien controleren en behandelen</li>
+        <li>Nagels knippen en vacht borstelen</li>
+        <li>Onderhaar verwijderen en plukken waar nodig</li>
+        <li>Klitten en vervilting verwijderen of scheren</li>
+        <li>Wassen en drogen met speciale shampoo</li>
+      </ul>
+    </div>
+    <div class="split-visual reveal">
+      <div class="info-box">
+        <h4>Klitten vs. vervilting</h4>
+        <p><strong>Klitten</strong> ontstaan wanneer dode haren in het onderhaar aan elkaar blijven plakken, vooral tijdens de rui. Ze geven ongemak en bemoeilijken het bewegen.</p>
+        <p><strong>Vervilting</strong> is ernstiger en vraagt professionele verzorging of scheren om huidbeschadiging te voorkomen.</p>
+        <p class="muted">Drogen gebeurt met warme handdoeken en föhn — met bescherming voor de oortjes om stress te beperken.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ons team</span>
+      <h2>Vertrouwde handen voor uw kat</h2>
+    </div>
+    <div class="grid grid-2">
+      <article class="team-card reveal">
+        <div class="team-avatar">GV</div>
+        <div>
+          <h3>Guy Vermeerbergen</h3>
+          <p class="role">Zaakvoerder</p>
+          <p>Jarenlange ervaring met honden en katten. Steeds op zoek naar nieuwe trimtechnieken en materialen.</p>
+        </div>
+      </article>
+      <article class="team-card reveal" style="--d:80ms">
+        <div class="team-avatar">CS</div>
+        <div>
+          <h3>Christel Smolders</h3>
+          <p class="role">De kattenfluisteraar</p>
+          <p>Jarenlange ervaring met katten en een rustige aanpak. Gespecialiseerd in het verzorgen van langharige katten.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Maak een afspraak</h2>
+    </div>
+    <div class="grid grid-3 contact-grid">
+      <a class="contact-card reveal" href="tel:{{ .Site.Params.phoneLink }}">
+        <span class="card-icon">📞</span>
+        <h3>Bel ons</h3>
+        <p>{{ .Site.Params.phone }}</p>
+      </a>
+      <a class="contact-card reveal" style="--d:80ms" href="mailto:{{ .Site.Params.email }}">
+        <span class="card-icon">✉️</span>
+        <h3>Mail ons</h3>
+        <p>{{ .Site.Params.email }}</p>
+      </a>
+      <a class="contact-card reveal" style="--d:160ms" href="{{ .Site.Params.mapsUrl }}" target="_blank" rel="noopener">
+        <span class="card-icon">📍</span>
+        <h3>Bezoek ons</h3>
+        <p>{{ .Site.Params.address }}<br><span class="muted">Gratis parking</span></p>
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}
